@@ -4,6 +4,15 @@
 // font - size.В результате при перетаскивании ползунка
 // будет меняться размер текста.
 
-// <input id="font-size-control" type="range" />
-// <br />
-// <span id="text">Абракадабра!</span>
+
+const inputRef = document.querySelector('#font-size-control');
+const textRef = document.querySelector('#text');
+
+
+inputRef.addEventListener('input', (event) => {
+  textRef.classList.replace('font-size1', 'font-size2');
+});
+ 
+//window.addEventListener("input", cb);
+
+//где взять font-size1, font-size2? как будет меняться его значение?

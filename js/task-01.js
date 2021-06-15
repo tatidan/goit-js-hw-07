@@ -8,42 +8,38 @@
 //количество элементов в категории(всех вложенных в него элементов li).
 
 // Например для первой категории получится:
-
 // Категория: Животные
 // Количество элементов: 4
 
-/*================1=DONE=================*/
+/*================1==================*/
 
 const ulCategories = document.querySelector('#categories');
 
-const liItem = ulCategories.children;
-//console.log(liItem.length); // 3 это количество ul-ок
-// животные, продукты, технологии
+const subcategories = ulCategories.children;
 
-console.log(`В списке ${liItem.length} категории`);
-
+console.log(`В списке ${subcategories.length} категории`);
 
 /*=================2=================*/
 
-const catElements = document.querySelectorAll('.item');
-console.log(catElements); //это категория, вложенный ul
+const subCatArr = [...subcategories];
 
-console.log(...ulCategories.children);
+subCatArr.forEach(subCat => {
+  const subCatTitle = subCat.querySelector('h2');
+  console.log(`Категория: ${subCatTitle.textContent}`);
 
-const catItems = document.querySelector('h2');
-console.log(catItems);
+  const subCatItems = subCat.querySelectorAll('li');
+  console.log(`Количество элементов: ${subCatItems.length}`)
+});
 
-const testEl = ulCategories.querySelectorAll('ul');
-const testElChild = testEl.querySelectorAll('li');
-console.log(testEl);
-console.log(testElChild);
-//тут массив ul (животные, продукты, технологии)
+/*=================2=================*/
 
- 
+//Console:
 
-//перебрать массив после стр.29 методом forEach
-// у каждого item достать h2 и количество li в ul
-
-
-
+// В списке 3 категории
+// task-01.js:29 Категория: Животные
+// task-01.js:32 Количество элементов: 4
+// task-01.js:29 Категория: Продукты
+// task-01.js:32 Количество элементов: 3
+// task-01.js:29 Категория: Технологии
+// task-01.js:32 Количество элементов: 5
 
