@@ -13,32 +13,15 @@ inputRef.classList.add('#validation-input');
 
 inputRef.addEventListener('blur', event => {
   const input = event.target;
-  //если я меняю через removeAttr и setAttr, уже тут изменный id
-  //плюс по условию мы действуем через classList.add
-  console.log(input);
-  console.log(input.value.length);
-// при вводе 3х символов получаем 3
-  
-  console.log(inputRef);
-  console.log(+input.dataset.length);
   
   if (input.value.length === +input.dataset.length) {
-    console.log('correct and valid --- green border')
-    inputRef.classList.remove('#validation-input');
-    inputRef.classList.remove('#validation-input.invalid');
-    inputRef.classList.add('#validation-input.valid');
-  //  inputRef.removeAttribute('id');
-  //  inputRef.setAttribute('id', 'validation-input.valid');
-
+    inputRef.classList.remove('invalid');
+    inputRef.classList.add('valid');
   }
   else {
-    console.log('invalid --- red border');
-    inputRef.classList.remove('#validation-input');
-    inputRef.classList.remove('#validation-input.valid')
-    inputRef.classList.add('#validation-input.invalid');
-  //  inputRef.removeAttribute('id');
-  //  inputRef.setAttribute('id', 'validation-input.invalid');
+    inputRef.classList.remove('valid');
+    inputRef.classList.add('invalid');
   };
 });
 
-//проверка работает, цвет border не меняется
+
