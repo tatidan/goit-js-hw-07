@@ -9,20 +9,36 @@
 
 
 const inputRef = document.querySelector('input');
+inputRef.classList.add('#validation-input');
 
 inputRef.addEventListener('blur', event => {
   const input = event.target;
+  //если я меняю через removeAttr и setAttr, уже тут изменный id
+  //плюс по условию мы действуем через classList.add
   console.log(input);
   console.log(input.value.length);
-  //return input.value.length;
+// при вводе 3х символов получаем 3
+  
+  console.log(inputRef);
+  console.log(+input.dataset.length);
+  
+  if (input.value.length === +input.dataset.length) {
+    console.log('correct and valid --- green border')
+    inputRef.classList.remove('#validation-input');
+    inputRef.classList.remove('#validation-input.invalid');
+    inputRef.classList.add('#validation-input.valid');
+  //  inputRef.removeAttribute('id');
+  //  inputRef.setAttribute('id', 'validation-input.valid');
 
-  (input.value.length === input.dataset.length) ? (inputRef.id.classList.add('valid')) : (inputRef.id.classList.add('invalid'));
+  }
+  else {
+    console.log('invalid --- red border');
+    inputRef.classList.remove('#validation-input');
+    inputRef.classList.remove('#validation-input.valid')
+    inputRef.classList.add('#validation-input.invalid');
+  //  inputRef.removeAttribute('id');
+  //  inputRef.setAttribute('id', 'validation-input.invalid');
+  };
 });
 
-//inputRef.addEventListener('focus', event => {
-//  inputRef.id.classList.remove('invalid');
-//});
-
-// тернарник не работает, класс к id не добавляется, и с точкой и без
-// нужно ли добавить remove?
-
+//проверка работает, цвет border не меняется

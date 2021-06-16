@@ -10,9 +10,8 @@ const textRef = document.querySelector('#text');
 
 
 inputRef.addEventListener('input', (event) => {
-  textRef.classList.replace('font-size1', 'font-size2');
+  console.log(inputRef.value);
+  textRef.style.fontSize = `${inputRef.value}px`;
 });
- 
-//window.addEventListener("input", cb);
 
-//где взять font-size1, font-size2? как будет меняться его значение?
+
